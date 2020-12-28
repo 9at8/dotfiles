@@ -1,0 +1,7 @@
+[user]
+	name = Aditya Thakral
+	email = github@9at8.dev
+[init]
+	defaultBranch = main
+[core]
+	editor = vim

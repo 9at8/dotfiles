@@ -1,0 +1,6 @@
+fish
+git
+i3
+kde
+rofi
+ssh

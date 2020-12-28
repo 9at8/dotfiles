@@ -1,0 +1,12 @@
+bat
+bind-tools
+feh
+mc
+nextcloud-client
+nodejs
+ripgrep
+rofi
+stow
+tree
+vim
+yay
