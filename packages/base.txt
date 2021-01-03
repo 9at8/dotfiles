@@ -4,9 +4,11 @@ feh
 mc
 nextcloud-client
 nodejs
+redshift
 ripgrep
 rofi
 stow
 tree
 vim
+wireguard-tools
 yay

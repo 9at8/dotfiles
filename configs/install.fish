@@ -35,6 +35,9 @@ for config in (cat ./install.txt)
     end
 end
 
+blue; echo "Setting wallpaper to update every 30 mins ..."; dim
+crontab ./wallpaper.cron
+
 set_color normal
 
 popd
