@@ -1,5 +1,6 @@
 bat
 bind-tools
+emacs
 feh
 mc
 nextcloud-client

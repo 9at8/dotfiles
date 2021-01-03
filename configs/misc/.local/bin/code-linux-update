@@ -1,0 +1,47 @@
+#!/usr/bin/env bash
+
+set -e
+
+CACHE_DIR="$HOME/.cache/vscode-updater"
+INSTALL_STABLE_DIR="$HOME/opt/vscode/stable"
+INSTALL_INSIDER_DIR="$HOME/opt/vscode/insider"
+BIN_DIR="$HOME/.local/bin"
+STABLE_BIN_LINK="$BIN_DIR/code"
+INSIDER_BIN_LINK="$BIN_DIR/code-insiders"
+
+UPDATE_URL="https://update.code.visualstudio.com/latest"
+ARCH=$(uname -m)
+PLATFORM=""
+
+if [ "$ARCH" = "x86_64" ]; then
+	PLATFORM="linux-x64"
+else
+	PLATFORM="linux-arm64"
+fi
+
+DOWNLOAD_STABLE_URL="$UPDATE_URL/$PLATFORM/stable"
+DOWNLOAD_INSIDER_URL="$UPDATE_URL/$PLATFORM/insider"
+
+# Setup install directories
+mkdir -p "$INSTALL_STABLE_DIR" "$INSTALL_INSIDER_DIR"
+
+# Setup cache directory
+mkdir -p "$CACHE_DIR"
+
+# Setup local/bin directory
+mkdir -p "$BIN_DIR"
+
+# Download the tars
+pushd "$CACHE_DIR"
+wget "$DOWNLOAD_STABLE_URL" -N
+wget "$DOWNLOAD_INSIDER_URL" -N
+
+# Extract them to the install directories
+tar --file ./stable --extract --directory "$INSTALL_STABLE_DIR" --overwrite
+tar --file ./insider --extract --directory "$INSTALL_INSIDER_DIR" --overwrite
+popd
+
+rm -f "$STABLE_BIN_LINK" "$INSIDER_BIN_LINK"
+ln -s "$INSTALL_STABLE_DIR/VSCode-linux-x64/bin/code" "$STABLE_BIN_LINK"
+ln -s "$INSTALL_INSIDER_DIR/VSCode-linux-x64/bin/code-insiders" "$INSIDER_BIN_LINK"
+

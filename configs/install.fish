@@ -26,7 +26,7 @@ pushd (dirname (status --current-filename))
 blue; echo "Stowing configs ..."; dim
 
 for config in (cat ./install.txt)
-    stow -t ~(logname || whoami) $config
+    stow -t ~ $config
     
     if test $status = 0
         green; echo "	$config	done"; dim
@@ -37,6 +37,11 @@ end
 
 blue; echo "Setting wallpaper to update every 30 mins ..."; dim
 crontab ./wallpaper.cron
+
+if not contains (realpath ~/.local/bin) $PATH
+    blue; echo "Adding ~/.local/bin to PATH ..."; dim
+    set -U fish_user_paths (realpath ~/.local/bin) $fish_user_paths
+end
 
 set_color normal
 

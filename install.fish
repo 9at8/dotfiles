@@ -25,4 +25,7 @@ blue; echo "Installing pacapt ..."; dim
 ./configs/install.fish
 
 set_color normal
+set_color green
+echo "Done!"
+set_color normal
 
