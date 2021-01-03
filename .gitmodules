@@ -1,0 +1,3 @@
+[submodule "configs/emacs/.emacs.d"]
+	path = configs/emacs/.emacs.d
+	url = git@github.com:9at8/emacs.d
