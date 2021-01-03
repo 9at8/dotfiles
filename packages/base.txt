@@ -3,6 +3,7 @@ bat
 bind-tools
 emacs
 feh
+gnome-keyring
 mc
 nextcloud-client
 nodejs
