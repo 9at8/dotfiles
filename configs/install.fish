@@ -23,6 +23,10 @@ dim
 
 pushd (dirname (status --current-filename))
 
+blue; echo "Creating ~/.ssh directory ..."; dim
+
+mkdir ~/.ssh
+
 blue; echo "Stowing configs ..."; dim
 
 for config in (cat ./install.txt)
