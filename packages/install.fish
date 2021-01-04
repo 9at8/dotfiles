@@ -23,7 +23,10 @@ dim
 
 pushd (dirname (status --current-filename))
 
-blue; echo "Installing base packages ..."; dim
+blue; echo "Installing base-devel ..."; dim
+sudo pacapt --noconfirm -S base-devel
+
+blue; echo "Installing packages ..."; dim
 
 # Try to install everything at once
 yes | sudo pacapt -S (cat ./base.txt)
