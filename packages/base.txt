@@ -7,6 +7,7 @@ gnome-keyring
 mc
 nextcloud-client
 nodejs
+npm
 redshift
 ripgrep
 rofi

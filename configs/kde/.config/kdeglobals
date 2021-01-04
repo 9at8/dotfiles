@@ -145,8 +145,8 @@ Speedbar Width=123
 View Style=DetailTree
 
 [KScreen]
-ScaleFactor=1.25
-ScreenScaleFactors=eDP1=1.25;DP1=1.25;HDMI1=1.25;HDMI2=1.25;VIRTUAL1=1.25;
+ScaleFactor=2
+ScreenScaleFactors=eDP1=1.25;DP1=2;HDMI1=2;HDMI2=2;VIRTUAL1=2;DP1-8=2;DP1-1=2;
 
 [KShortcutsDialog Settings]
 Dialog Size=600,480
