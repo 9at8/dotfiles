@@ -1,6 +1,7 @@
 barrier
 bat
 bind-tools
+binutils
 emacs
 feh
 gnome-keyring
