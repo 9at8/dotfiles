@@ -1,7 +1,7 @@
+code
 emacs
 fish
 git
 i3
-misc
 rofi
 ssh

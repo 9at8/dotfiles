@@ -24,8 +24,10 @@ dim
 pushd (dirname (status --current-filename))
 
 blue; echo "Creating ~/.ssh directory ..."; dim
+blue; echo "Creating ~/.local/bin directory ..."; dim
 
-mkdir ~/.ssh
+mkdir -p ~/.ssh
+mkdir -p ~/.local/bin
 
 blue; echo "Stowing configs ..."; dim
 

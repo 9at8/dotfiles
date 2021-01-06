@@ -5,6 +5,7 @@ binutils
 emacs
 feh
 gnome-keyring
+i3-wm
 mc
 nextcloud-client
 nodejs
@@ -16,4 +17,5 @@ stow
 tree
 vim
 wireguard-tools
+wmctrl
 yay
