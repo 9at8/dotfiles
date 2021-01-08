@@ -42,6 +42,6 @@ tar --file ./insider --extract --directory "$INSTALL_INSIDER_DIR" --overwrite
 popd
 
 rm -f "$STABLE_BIN_LINK" "$INSIDER_BIN_LINK"
-ln -s "$INSTALL_STABLE_DIR/VSCode-linux-x64/bin/code" "$STABLE_BIN_LINK"
-ln -s "$INSTALL_INSIDER_DIR/VSCode-linux-x64/bin/code-insiders" "$INSIDER_BIN_LINK"
+ln -s "$INSTALL_STABLE_DIR/VSCode-$PLATFORM/bin/code" "$STABLE_BIN_LINK"
+ln -s "$INSTALL_INSIDER_DIR/VSCode-$PLATFORM/bin/code-insiders" "$INSIDER_BIN_LINK"
 
