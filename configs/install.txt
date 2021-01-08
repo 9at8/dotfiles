@@ -3,6 +3,5 @@ emacs
 fish
 git
 i3
-polybar
 rofi
 ssh
