@@ -198,7 +198,5 @@ for_window [class="Plasmoidviewer"] floating enable; border none
 for_window [class="plasmashell" window_type="notification"] floating enable, border none
 no_focus [class="plasmashell" window_type="notification"]
 
+exec --no-startup-id "kquitapp5 plasmashell && kstart5 plasmashell & disown && sleep 2 && wmctrl -c Plasma"
 exec --no-startup-id "feh --bg-fill --randomize ~/Nextcloud/Wallpapers/*"
-
-# Only kill plasma after sending a notification so that i3 can position the notification properly
-exec "notify-send 'Hello from i3'; sleep 1; wmctrl -c Plasma"
