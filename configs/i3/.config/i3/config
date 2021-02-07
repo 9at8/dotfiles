@@ -41,7 +41,7 @@ font pango:hack 10
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec alacritty
 
 # kill focused window
 bindsym $mod+q kill
@@ -198,5 +198,6 @@ for_window [class="Plasmoidviewer"] floating enable; border none
 for_window [class="plasmashell" window_type="notification"] floating enable, border none
 no_focus [class="plasmashell" window_type="notification"]
 
-exec --no-startup-id "kquitapp5 plasmashell && kstart5 plasmashell & disown && sleep 2 && wmctrl -c Plasma"
-exec --no-startup-id "feh --bg-fill --randomize ~/Nextcloud/Wallpapers/*"
+exec --no-startup-id "DISPLAY=:0 kquitapp5 plasmashell && kstart5 plasmashell & disown && sleep 4 && wmctrl -c Plasma"
+exec --no-startup-id "sleep 10 && feh --bg-fill --randomize ~/Nextcloud/Wallpapers/*"
+exec --no-startup-id "killall redshift-gtk; killall redshift; redshift-gtk"

@@ -1,9 +1,11 @@
+alacritty
 barrier
 bat
 bind-tools
 binutils
 emacs
 feh
+github-cli
 gnome-keyring
 i3-wm
 mc

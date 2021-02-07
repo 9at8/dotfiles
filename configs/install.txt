@@ -1,3 +1,4 @@
+alacritty
 code
 emacs
 fish

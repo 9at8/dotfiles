@@ -35,9 +35,9 @@ for config in (cat ./install.txt)
     stow -t ~ $config
     
     if test $status = 0
-        green; echo "	$config	done"; dim
+        green; echo "	$config		done"; dim
     else
-        red; echo "	$config	failed"; dim
+        red; echo "	$config		failed"; dim
     end
 end
 
