@@ -41,7 +41,10 @@ font pango:hack 10
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+t exec alacritty 
+
+# start browser
+bindsym $mod+b exec brave
 
 # kill focused window
 bindsym $mod+q kill
