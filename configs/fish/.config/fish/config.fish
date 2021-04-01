@@ -6,4 +6,5 @@ end
 
 set -g man_standout -b red black
 
+set -gx TERM xterm-256color
 set -gx SSH_AUTH_SOCK "$XDG_RUNTIME_DIR/ssh-agent.socket"
