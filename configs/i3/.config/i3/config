@@ -41,7 +41,10 @@ font pango:hack 10
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+t exec alacritty 
+bindsym $mod+t exec alacritty
+
+# take a screenshot
+bindsym $mod+shift+s exec gscreenshot 
 
 # start browser
 bindsym $mod+b exec brave
@@ -196,6 +199,8 @@ for_window [class="krunner"] floating enable; border none
 for_window [class="Kmix"] floating enable; border none
 for_window [class="Klipper"] floating enable; border none
 for_window [class="Plasmoidviewer"] floating enable; border none
+for_window [title="Emoji Selector"] floating enable; border none
+# for_window [title="gscreenshot"] floating enable; border none
 # for_window [class="(?i)*nextcloud*"] floating disable
 # for_window [class="plasmashell" window_type="notification"] floating enable, border none, move right 700px, move down 450px
 for_window [class="plasmashell" window_type="notification"] floating enable, border none
