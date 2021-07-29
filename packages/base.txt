@@ -1,4 +1,5 @@
 alacritty
+arandr
 barrier
 bat
 bind-tools
@@ -8,11 +9,13 @@ feh
 github-cli
 gnome-keyring
 i3-wm
+i3lock
 mc
 mpv
 nextcloud-client
 nodejs
 npm
+polybar
 redshift
 ripgrep
 rofi
@@ -21,4 +24,5 @@ tree
 vim
 wireguard-tools
 wmctrl
+xorg-xbacklight
 yay

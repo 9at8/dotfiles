@@ -32,10 +32,13 @@ font pango:hack 10
 
 # Use pactl to adjust volume in PulseAudio.
 # set $refresh_i3status killall -SIGUSR1 i3status
-# bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
-# bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
-# bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +2% && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -2% && $refresh_i3status
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 # bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+
+bindsym XF86MonBrightnessUp exec xbacklight -inc 2
+bindsym XF86MonBrightnessDown exec xbacklight -dec 2
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -206,6 +209,10 @@ for_window [title="Emoji Selector"] floating enable; border none
 for_window [class="plasmashell" window_type="notification"] floating enable, border none
 no_focus [class="plasmashell" window_type="notification"]
 
-exec --no-startup-id "DISPLAY=:0 kquitapp5 plasmashell && kstart5 plasmashell & disown && sleep 4 && wmctrl -c Plasma"
-exec --no-startup-id "sleep 10 && feh --bg-fill --randomize ~/Nextcloud/Wallpapers/*"
+# Doesn't work for some reason :shrug:
+# exec --no-startup-id "DISPLAY=:0 kquitapp5 plasmashell && kstart5 plasmashell & disown && sleep 4 && wmctrl -c Plasma"
+
+exec --no-startup-id "sleep 5 && feh --bg-fill --randomize ~/Nextcloud/Wallpapers/*"
 exec --no-startup-id "killall redshift-gtk; killall redshift; redshift-gtk"
+exec_always --no-startup-id "$HOME/.config/polybar/launch.sh"
+

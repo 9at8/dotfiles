@@ -1,0 +1,291 @@
+[colors]
+background = #212121
+foreground = #f5f5f5
+linecolor = #fb2e22
+bordercolor = #00000000
+
+primary = #64b5f6
+primary-text = #212121
+secondary = #0d47a1
+secondary-text = #f5f5f5
+accent = #ffa000
+accent-text = #212121
+
+
+[global/wm]
+margin-top = 0
+margin-bottom = 0
+
+
+[bar/top]
+enable-ipc = true
+width = 100%
+height = 32
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+underline-color = ${colors.linecolor}
+underline-size = 1
+overline-color = ${colors.linecolor}
+overline-size = 2
+
+border-bottom-size = 0
+border-bottom-color = ${colors.bordercolor}
+
+padding-left = 0
+padding-right = 2
+module-margin-left = 1
+module-margin-right = 2
+
+font-0 = "Hack Nerd Font Mono:size=14;4"
+font-1 = "siji:pixelsize=16;2"
+font-2 = "termsynu:size=16;4"
+
+modules-left = i3
+;modules-center = mpd
+modules-center = cpu memory wifi
+modules-right = volume battery date power-menu
+
+tray-position = right
+tray-padding = 8
+tray-scale = 1
+tray-maxsize = 24
+
+scroll-up = i3wm-wsnext
+scroll-down = i3wm-wsprev
+
+
+[module/i3]
+type = internal/i3
+index-sort = true
+pin-workspaces = false
+wrapping-scroll = true
+;reverse-scroll = false
+;enable-scroll = false
+
+size = 2
+
+format = <label-state> <label-mode>
+
+label-mode = %mode%
+label-mode-padding = ${self.size}
+label-mode-background = ${colors.accent}
+
+label-focused = %index%
+label-focused-background = ${colors.primary}
+label-focused-foreground = ${colors.primary-text}
+label-focused-padding = ${self.size}
+
+label-visible = %index%
+label-visible-background = ${colors.secondary}
+label-visible-foreground = ${colors.secondary-text}
+label-visible-padding = ${self.size}
+
+label-unfocused = %index%
+label-unfocused-padding = ${self.size}
+
+label-urgent = %index%
+label-urgent-background = ${colors.accent}
+label-urgent-foreground = ${colors.accent-text}
+label-urgent-padding = ${self.size}
+
+
+
+[module/cpu]
+type = internal/cpu
+interval = 2
+label = %percentage%%
+format-prefix = "ﰌ "
+format-prefix-foreground = ${colors.primary}
+
+
+[module/memory]
+type = internal/memory
+interval = 2
+label = %percentage_used%%
+format-prefix = " "
+format-prefix-foreground = ${colors.primary}
+
+
+[module/wifi]
+type = internal/network
+interface = wlp1s0
+interval = 3.0
+;udspeed-minwidth = 0
+
+format-connected = <ramp-signal> <label-connected>
+label-connected = %essid% - %local_ip%
+
+format-disconnected = <label-disconnected>
+label-disconnected = "  offline  "
+label-disconnected-background = ${colors.accent}
+label-disconnected-foreground = ${colors.accent-text}
+
+ramp-signal-0 = 😱
+ramp-signal-1 = 😠
+ramp-signal-2 = 😒
+ramp-signal-3 = 😊
+ramp-signal-4 = 😃
+ramp-signal-5 = 😈
+ramp-signal-foreground = ${colors.primary}
+
+
+[module/xbacklight]
+type = internal/xbacklight
+output = eDP1
+format = <ramp> <label>
+
+ramp-0 = 🌕
+ramp-1 = 🌔
+ramp-2 = 🌓
+ramp-3 = 🌒
+ramp-4 = 🌑
+
+ramp-foreground = ${colors.primary}
+label-foreground = ${root.foreground}
+
+
+[module/date]
+type = internal/date
+label = %{F#64b5f6}ﭷ%{F-} %date%  %{F#64b5f6}%{F-} %time%
+date = %Y-%m-%d
+time = %H:%M:%S
+interval = 1
+
+[module/volume]
+type = internal/alsa
+
+; Soundcard to be used
+; Usually in the format hw:# where # is the card number
+; You can find the different card numbers in `/proc/asound/cards`
+master-soundcard = default
+speaker-soundcard = default
+headphone-soundcard = default
+
+master-mixer = Master
+
+interval = 5
+
+format-volume = <ramp-volume> <label-volume>
+label-volume = %percentage%%
+
+ramp-volume-0 = 奄
+ramp-volume-1 = 奔
+ramp-volume-2 = 墳
+ramp-volume-foreground = ${colors.primary}
+
+label-muted = " ﱝ "
+label-muted-background = ${colors.accent}
+label-muted-foreground = ${colors.accent-text}
+
+
+[module/battery]
+type = internal/battery
+full-at = 95
+time-format = %H:%M
+
+format-charging = <label-charging>
+label-charging = %percentage%
+
+format-discharging = <ramp-capacity> <label-discharging>
+label-discharging = %percentage%% %time%
+
+format-full = ""
+; format-full-prefix = " "
+; format-full-prefix-foreground = #666
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+ramp-capacity-5 = 
+ramp-capacity-6 = 
+ramp-capacity-7 = 
+ramp-capacity-8 = 
+ramp-capacity-9 = 
+ramp-capacity-foreground = ${colors.primary}
+
+
+[module/power-menu]
+type = custom/menu
+
+label-open = 襤
+label-close = " 窱"
+label-close-background = ${colors.accent}
+label-close-foreground = ${colors.accent-text}
+
+label-separator = |
+label-separator-background = ${colors.accent}
+label-separator-foreground = ${colors.accent-text}
+label-separator-padding = 1
+
+menu-0-0 = Logout
+menu-0-0-background = ${colors.accent}
+menu-0-0-foreground = ${colors.accent-text}
+menu-0-0-exec = menu-open-3
+menu-0-1 = Reboot
+menu-0-1-background = ${colors.accent}
+menu-0-1-foreground = ${colors.accent-text}
+menu-0-1-exec = menu-open-1
+menu-0-2 = Power off
+menu-0-2-background = ${colors.accent}
+menu-0-2-foreground = ${colors.accent-text}
+menu-0-2-exec = menu-open-2
+menu-0-3 = "Lock "
+menu-0-3-background = ${colors.accent}
+menu-0-3-foreground = ${colors.accent-text}
+menu-0-3-exec = i3lock
+
+menu-1-0 = Reboot
+menu-1-0-background = ${colors.accent}
+menu-1-0-foreground = ${colors.accent-text}
+menu-1-0-exec = reboot
+menu-1-1 = "Cancel "
+menu-1-1-background = ${colors.accent}
+menu-1-1-foreground = ${colors.accent-text}
+menu-1-1-exec = menu-open-0
+
+menu-2-0 = Power off
+menu-2-0-background = ${colors.accent}
+menu-2-0-foreground = ${colors.accent-text}
+menu-2-0-exec = poweroff
+menu-2-1 = "Cancel "
+menu-2-1-background = ${colors.accent}
+menu-2-1-foreground = ${colors.accent-text}
+menu-2-1-exec = menu-open-0
+
+menu-3-0 = Logout
+menu-3-0-background = ${colors.accent}
+menu-3-0-foreground = ${colors.accent-text}
+menu-3-0-exec = i3-msg exit
+menu-3-1 = "Cancel "
+menu-3-1-background = ${colors.accent}
+menu-3-1-foreground = ${colors.accent-text}
+menu-3-1-exec = menu-open-0
+
+
+[module/app-menu]
+type = custom/menu
+label-open = 
+label-close = 
+
+menu-0-0 = Vimperator
+menu-0-0-exec = web
+menu-0-1 = Termite
+menu-0-1-exec = termite
+menu-0-2 = Pcmanfm
+menu-0-2-exec = pcmanfm
+
+
+[module/xwindow]
+type = internal/xwindow
+format = <label>
+label-maxlen = 75
+
+
+[module/counter]
+type = internal/counter
+format = <counter>
+interval = 0.1
