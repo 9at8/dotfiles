@@ -5,6 +5,7 @@ emacs
 fish
 git
 i3
+notifications
 polybar
 rofi
 ssh

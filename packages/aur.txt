@@ -1,3 +1,2 @@
 brave-bin
-deadd-notification-center-bin
 telegram-desktop-bin
