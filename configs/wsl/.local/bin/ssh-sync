@@ -1,0 +1,26 @@
+#!/usr/bin/env fish
+
+set WSL_SSH_DIR ~/.ssh
+set WIN_SSH_DIR /mnt/c/Users/adity/.ssh
+
+# Delete old files
+for file in (ls $WIN_SSH_DIR)
+    set to_delete $WIN_SSH_DIR/$file
+
+    echo "Deleting $to_delete ..."
+
+    rm "$to_delete"
+end
+
+echo ""
+
+# Copy new ones
+printf "Copying: (src) \t (dst)\n"
+for file in (ls $WSL_SSH_DIR)
+    set src (realpath $WSL_SSH_DIR/$file)
+    set dst $WIN_SSH_DIR/$file
+
+    printf "$src \t $dst\n"
+
+    cp "$src" "$dst"
+end

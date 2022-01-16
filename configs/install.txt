@@ -9,4 +9,5 @@ notifications
 polybar
 rofi
 ssh
+wsl
 x11
